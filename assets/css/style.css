@@ -1,1 +1,11 @@
 
+.fc-daygrid-event-harness:hover{
+  cursor: pointer;
+}
+.fc-event-main:hover{
+  cursor: pointer;
+}
+
+.calendar{
+  min-width: 500px;
+}

@@ -54,19 +54,23 @@ function draw(data) {
   var calendarEl = document.getElementById('calendar')
   var calendar = new FullCalendar.Calendar(calendarEl, {
     themeSystem: 'bootstrap5',
-    initialView: 'dayGridWeek',
+    slotMinTime: '06:00',
+    slotMaxTime: '20:00',
+    aspectRatio: 0.3,
+    expandRows: true,
+    initialView: 'timeGridWeek',
     initialDate: new Date(),
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
-    events: data,
-    eventClick: function (info) {
-      alert('Event: ' + info.event.title)
-      // change the border color just for fun
-      info.el.style.borderColor = 'red'
-    }
+    events: data
+    // eventClick: function (info) {
+    //   alert('Event: ' + info.event.title)
+    //   // change the border color just for fun
+    //   info.el.style.borderColor = 'red'
+    // }
   })
   calendar.render()
 }

@@ -22,7 +22,7 @@ xhr.addEventListener('load', function () {
     }))
 
     function adicionaPacienteNaLista(paciente) {
-      var pacienteList = montaLista(paciente, 'dropdown-item', '#')
+      var pacienteList = montaLista(paciente, 'dropdown-item', '#click-modal')
       var list = document.querySelector('#sites')
       list.appendChild(pacienteList)
     }
