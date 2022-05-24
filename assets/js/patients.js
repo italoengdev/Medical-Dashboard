@@ -1,4 +1,4 @@
-var b = document.querySelector('button', '#dropdown')
+
 
 console.log('Searching pacients...')
 //b.setAttribute('disabled', 'disabled')

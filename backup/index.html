@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/calendar.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 bg-secondary">
+          <div class="dropdown">
+            <button
+              class="btn btn-primary dropdown-toggle"
+              type="button"
+              id="dropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Patients
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdown" id="sites">
+              <!-- <li><a class="dropdown-item" href="#">Dropdown item</a></li>
+              <li><a class="dropdown-item" href="#">Dropdown item</a></li>
+              <li><a class="dropdown-item" href="#">Dropdown item</a></li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-10 col-xs-12">
+          <div class="row">
+            <div class="col-12 col-sm-12 bg-primary">
+              <!-- Código Calendar -->
+             
+              <div class="table-responsive">
+                <header class="row">
+                  <h2 class="col-3">Calendar</h2>
+                  <h3 class="col-3 text-end">Today date:</h2>
+                  <h3 id="currentDay" class="col-6"></h3>
+                </header>
+                <table class="table text-center table-hover rounded">
+                  <thead>
+                    <tr class="bg-success">
+                      <th class="col-1" scope="col">#</th>
+                      <th class="col-1" scope="col">Monday</th>
+                      <th class="col-1" scope="col">Tuesday</th>
+                      <th class="col-1" scope="col">Wednesday</th>
+                      <th class="col-1" scope="col">Thursday</th>
+                      <th class="col-1" scope="col">Friday</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">09:00</th>
+                      <td>
+                        [Mark]<br />
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Earum atque accusantium, magni consequatur ad
+                        sunt,
+                      </td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">09:30</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">10:00</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">10:30</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">11:00</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">11:30</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">12:00</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">12:30</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">13:00</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">13:30</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">14:00</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">14:30</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">15:00</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">15:30</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">16:00</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">16:30</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">17:00</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">17:30</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">18:00</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">18:30</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">19:00</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Código Calendar -->
+            </div>
+            <div class="col-12 col-sm-12 bg-success">
+              <h2>History</h2>
+              <div class="table-responsive">
+                <table class="table table-dark table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col-3">Date</th>
+                      <th scope="co-3">Status</th>
+                      <th scope="col-3">Patient</th>
+                      <th scope="col-3">Appointment</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table-pacients">
+                    <!-- <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td colspan="2">Larry the Bird</td>
+                      <td>@twitter</td>
+                    </tr> -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <footer class="bg-secondary p-3">
+              <p class="text-light m-0 text-center">
+                contato:
+                <a class="text-light" href="mailto:email@frutafruto.com.br"
+                  >email@frutafruto.com.br</a
+                >
+              </p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/assets/js/patients.js"></script>
+    <script src="/assets/js/history.js"></script>
+    <script src="/assets/js/today-date.js"></script>
+    <script src="/assets/js/calendar.js"></script>
+  </body>
+</html>
