@@ -76,7 +76,6 @@ edf.addEventListener('load', function () {
     function montaTr(paciente) {
       var pacienteTr = document.createElement('tr')
       pacienteTr.classList.add('appointment-recent')
-      pacienteTr.appendChild(montaI('bi', 'bi-arrow-right-circle-fill'))
       pacienteTr.appendChild(
         montaTd(
           paciente.startTime.substr(8, 2) +
@@ -112,14 +111,6 @@ edf.addEventListener('load', function () {
       return tdDate
     }
 
-    function montaI(classe1, classe2) {
-      var iDate = document.createElement('i')
-
-      iDate.classList.add(classe1)
-      iDate.classList.add(classe2)
-
-      return iDate
-    }
 
     selectedAttById.forEach(function (paciente) {
       adicionaPacienteNaLista(paciente,'#table-pacient-history')
@@ -148,6 +139,25 @@ edf.addEventListener('load', function () {
     })
 
     // Upcoming Table Patient
+
+ // Conditional Color for Status
+ var trTags = document.getElementsByTagName('tr')
+ for (var i = 0; i < trTags.length; i++) {
+   var tdFourthEl = trTags[i].children[2] // starts with 0, so 3 is the 4th element
+   if (tdFourthEl.innerText === 'absent') {
+     tdFourthEl.style.backgroundColor = 'red'
+   } else if (tdFourthEl.innerText === 'completed') {
+     tdFourthEl.style.backgroundColor = 'green'
+   } else if (tdFourthEl.innerText === 'cancelled') {
+     tdFourthEl.style.backgroundColor = 'grey'
+   }
+ }
+ // Conditional Color for Status
+
+
+
+
+
 
   }
 })
