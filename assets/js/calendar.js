@@ -56,7 +56,7 @@ function draw(data) {
     themeSystem: 'bootstrap5',
     slotMinTime: '06:00',
     slotMaxTime: '20:00',
-    aspectRatio: 0.3,
+    aspectRatio: 0.01,
     expandRows: true,
     initialView: 'timeGridWeek',
     initialDate: new Date(),
@@ -65,12 +65,12 @@ function draw(data) {
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
-    events: data
-    // eventClick: function (info) {
-    //   alert('Event: ' + info.event.title)
-    //   // change the border color just for fun
-    //   info.el.style.borderColor = 'red'
-    // }
+    events: data,
+    eventClick: function (info) {
+      alert('Event: ' + info.event.title)
+      // change the border color just for fun
+      info.el.style.borderColor = 'red'
+    }
   })
   calendar.render()
 }

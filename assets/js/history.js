@@ -1,51 +1,49 @@
-
 window.addEventListener('load', function () {
-    console.log('Searching appointments...')
-    var xhr = new XMLHttpRequest()
+  console.log('Searching appointments...')
+  var xhr = new XMLHttpRequest()
 
-    xhr.open('GET', 'https://cm42-medical-dashboard.herokuapp.com/appointments')
+  xhr.open('GET', 'https://cm42-medical-dashboard.herokuapp.com/appointments')
 
-    xhr.addEventListener('load', function () {
-      if (xhr.status == 200) {
-        var response = xhr.responseText
-        var appointments = JSON.parse(response)
-        // Extracted Data from json-server
-        console.log(appointments)
-        // Extracted Data from json-server
-        // Filtering the Data, putting only 4 elements(startTime, status,patiendId and type)
-        appoSort = appointments.map(v => ({
-          startTime: v.startTime + v.endTime,
-          status: v.status,
-          patientId: v.patientId,
-          type: v.type
-        }))
-        // Filtering the Data, putting only 4 elements(startTime, status,patiendId and type)
-        // Sorting the Data by the startTime
-        sortBy(appoSort, { prop: 'startTime' })
-        JSON.stringify(appoSort)
-        console.log(appoSort)
-        console.log(appoSortId)
-        // Sorting the Data by the startTime
-        //taking the names by the other Json-Server and replacing them with your id
-        arrayNameId = []
-        for (i = 0; i < appoSort.length; i++) {
-          arrayNameId.push(findById(appoSortId, appoSort[i].patientId))
-        }
-        console.log(arrayNameId)
+  xhr.addEventListener('load', function () {
+    if (xhr.status == 200) {
+      var response = xhr.responseText
+      var appointments = JSON.parse(response)
+      // Extracted Data from json-server
+      console.log(appointments)
+      // Extracted Data from json-server
+      // Filtering the Data, putting only 4 elements(startTime, status,patiendId and type)
+      appoSort = appointments.map(v => ({
+        startTime: v.startTime + v.endTime,
+        status: v.status,
+        patientId: v.patientId,
+        type: v.type
+      }))
+      // Filtering the Data, putting only 4 elements(startTime, status,patiendId and type)
+      // Sorting the Data by the startTime
+      sortBy(appoSort, { prop: 'startTime' })
+      JSON.stringify(appoSort)
+      console.log(appoSort)
+      console.log(appoSortId)
+      // Sorting the Data by the startTime
+      //taking the names by the other Json-Server and replacing them with your id
+      arrayNameId = []
+      for (i = 0; i < appoSort.length; i++) {
+        arrayNameId.push(findById(appoSortId, appoSort[i].patientId))
+      }
+      console.log(arrayNameId)
 
-        for (i = 0; i < appoSort.length; i++) {
-          appoSort[i].patientId = arrayNameId[i]
-        }
-        //taking the names by the other Json-Server and replacing them with your id
-        console.log(appoSort)
+      for (i = 0; i < appoSort.length; i++) {
+        appoSort[i].patientId = arrayNameId[i]
+      }
+      //taking the names by the other Json-Server and replacing them with your id
+      console.log(appoSort)
 
-
-        function montaTr(paciente) {
-          var pacienteTr = document.createElement('tr')
-          pacienteTr.classList.add('paciente')
-          pacienteTr.appendChild(
-            montaTd(
-              paciente.startTime.substr(8, 2) +
+      function montaTr(paciente) {
+        var pacienteTr = document.createElement('tr')
+        pacienteTr.classList.add('paciente')
+        pacienteTr.appendChild(
+          montaTd(
+            paciente.startTime.substr(8, 2) +
               '/' +
               paciente.startTime.substr(5, 2) +
               '/' +
@@ -54,39 +52,51 @@ window.addEventListener('load', function () {
               paciente.startTime.substr(11, 5) +
               ' ' +
               paciente.startTime.substr(35, 5),
-              'info-start'
-            )
+            'info-start'
           )
-          pacienteTr.appendChild(montaTd(paciente.status, 'info-status'))
-          pacienteTr.appendChild(montaTd(paciente.patientId, 'info-id'))
-          pacienteTr.appendChild(montaTd(paciente.type, 'info-type'))
+        )
+        pacienteTr.appendChild(montaTd(paciente.status, 'info-status'))
+        pacienteTr.appendChild(montaTd(paciente.patientId, 'info-id'))
+        pacienteTr.appendChild(montaTd(paciente.type, 'info-type'))
 
-          return pacienteTr
-        }
+        return pacienteTr
+      }
 
-        function adicionaPacienteNaLista(paciente) {
-          var pacienteTr = montaTr(paciente)
-          var tdDateYear = document.querySelector('#table-pacients')
-          tdDateYear.appendChild(pacienteTr)
-        }
+      function adicionaPacienteNaLista(paciente) {
+        var pacienteTr = montaTr(paciente)
+        var tdDateYear = document.querySelector('#table-pacients')
+        tdDateYear.appendChild(pacienteTr)
+      }
 
-        function montaTd(dado, classe) {
-          var tdDate = document.createElement('td')
-          tdDate.textContent = dado
-          tdDate.classList.add(classe)
+      function montaTd(dado, classe) {
+        var tdDate = document.createElement('td')
+        tdDate.textContent = dado
+        tdDate.classList.add(classe)
 
-          return tdDate
-        }
-        /*appoSort.forEach(function (paciente) {
+        return tdDate
+      }
+      /*appoSort.forEach(function (paciente) {
           adicionaPacienteNaLista(paciente)
         })*/
-        appoSort.forEach(function (paciente) {
-          adicionaPacienteNaLista(paciente)
-        })
+      appoSort.forEach(function (paciente) {
+        adicionaPacienteNaLista(paciente)
+      })
+
+      var trTags = document.getElementsByTagName('tr')
+      for (var i = 0; i < trTags.length; i++) {
+        var tdFourthEl = trTags[i].children[1] // starts with 0, so 3 is the 4th element
+        if (tdFourthEl.innerText === 'absent') {
+          tdFourthEl.style.backgroundColor = 'red'
+        } else if (tdFourthEl.innerText === 'completed') {
+          tdFourthEl.style.backgroundColor = 'green'
+        } else if (tdFourthEl.innerText === 'cancelled') {
+          tdFourthEl.style.backgroundColor = 'grey'
+        }
       }
-    })
-    xhr.send(), { once: true }
+    }
   })
+  xhr.send(), { once: true }
+})
 
 // SORTBY FUNCTION
 var sortBy = (function () {

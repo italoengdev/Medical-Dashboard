@@ -1,5 +1,3 @@
-
-
 console.log('Searching pacients...')
 //b.setAttribute('disabled', 'disabled')
 
@@ -22,19 +20,28 @@ xhr.addEventListener('load', function () {
     }))
 
     function adicionaPacienteNaLista(paciente) {
-      var pacienteList = montaLista(paciente, 'dropdown-item', '#click-modal')
+      var pacienteList = montaLista(
+        paciente,
+        'dropdown-item',
+        'patientPage.html',
+        'test'
+      )
       var list = document.querySelector('#sites')
       list.appendChild(pacienteList)
     }
 
-    function montaLista(dado, classe, iD) {
+    function montaLista(dado, classe, hRef, iD) {
       var optionFather = document.createElement('li')
       var option = document.createElement('a')
       optionFather.appendChild(option)
 
       option.textContent = dado
+      option.setAttribute('onclick', 'pickName()')
+      // option.setAttribute('data-bs-toggle', 'modal')
+      // option.setAttribute('data-bs-target', '#contactModal')
+      option.id = iD
       option.classList.add(classe)
-      option.href = iD
+      option.href = hRef
 
       return optionFather
     }
@@ -44,3 +51,4 @@ xhr.addEventListener('load', function () {
   }
 })
 xhr.send(), { once: true }
+
