@@ -11,7 +11,6 @@ abc.addEventListener('load', function () {
   if (abc.status == 200) {
     var response = abc.responseText
     var pacients = JSON.parse(response)
-    console.log(pacients)
     objectSelectedByName = findByName(pacients, data)
     sessionStorage.setItem('id', objectSelectedByName.id)
     console.log(objectSelectedByName)
@@ -32,15 +31,13 @@ abc.addEventListener('load', function () {
 })
 abc.send(), { once: true }
 // Saving local id to relate with other array
-data1 = sessionStorage.getItem('id')
-
-console.log(data1)
 
 edf.addEventListener('load', function () {
   if (edf.status == 200) {
     var response = edf.responseText
 
     var appointments2 = JSON.parse(response)
+
     // Extracted Data from json-server
     console.log(appointments2)
     // Extracted Data from json-server
@@ -73,9 +70,94 @@ edf.addEventListener('load', function () {
       lastSelectedAttById.description
 
     //taking the names by the other Json-Server and replacing them with your id
+
+    // History Table Patient
+
+    function montaTr(paciente) {
+      var pacienteTr = document.createElement('tr')
+      pacienteTr.classList.add('appointment-recent')
+      pacienteTr.appendChild(montaI('bi', 'bi-arrow-right-circle-fill'))
+      pacienteTr.appendChild(
+        montaTd(
+          paciente.startTime.substr(8, 2) +
+            '/' +
+            paciente.startTime.substr(5, 2) +
+            '/' +
+            paciente.startTime.substr(0, 4) +
+            ' ' +
+            paciente.startTime.substr(11, 5) +
+            ' ' +
+            paciente.startTime.substr(35, 5),
+          'info-start'
+        )
+      )
+      pacienteTr.appendChild(montaTd(paciente.type, 'info-type'))
+
+      pacienteTr.appendChild(montaTd(paciente.status, 'info-status'))
+
+      return pacienteTr
+    }
+
+    function adicionaPacienteNaLista(paciente,id) {
+      var pacienteTr = montaTr(paciente)
+      var tdDateYear = document.querySelector(id)
+      tdDateYear.appendChild(pacienteTr)
+    }
+
+    function montaTd(dado, classe) {
+      var tdDate = document.createElement('td')
+      tdDate.textContent = dado
+      tdDate.classList.add(classe)
+
+      return tdDate
+    }
+
+    function montaI(classe1, classe2) {
+      var iDate = document.createElement('i')
+
+      iDate.classList.add(classe1)
+      iDate.classList.add(classe2)
+
+      return iDate
+    }
+
+    selectedAttById.forEach(function (paciente) {
+      adicionaPacienteNaLista(paciente,'#table-pacient-history')
+    })
+
+    // History Table Patient
+
+    // Recent Table Patient
+
+    const filterByExpiration = () => selectedAttById.filter(({ startTime }) => new Date(startTime) <= new Date());
+    console.log(filterByExpiration());
+
+    filterByExpiration().forEach(function (paciente) {
+      adicionaPacienteNaLista(paciente,'#table-pacient-recent')
+    })
+
+
+    // Recent Table Patient
+
+    // Upcoming Table Patient
+    const filterByFuture = () => selectedAttById.filter(({ startTime }) => new Date(startTime) > new Date());
+    console.log(filterByFuture());
+
+    filterByFuture().forEach(function (paciente) {
+      adicionaPacienteNaLista(paciente,'#table-pacient-upcoming')
+    })
+
+    // Upcoming Table Patient
+
   }
 })
 edf.send(), { once: true }
+
+// Getting the Storage data
+data1 = sessionStorage.getItem('id')
+
+console.log(data1)
+// Getting the Storage data
 
 function findByName(source, name) {
   for (var i = 0; i < source.length; i++) {
@@ -113,6 +195,17 @@ function findAppointmentAtt(people) {
       return p
     })
 }
+
+// function findAppointmentRecent(people) {
+//   var today = new Date()
+//   return people
+//     .filter(function (p) {
+//       return p.startTime > today
+//     })
+//     .map(function (p) {
+//       return p
+//     })
+// }
 
 // SORTBY FUNCTION
 var sortBy = (function () {

@@ -82,6 +82,7 @@ window.addEventListener('load', function () {
         adicionaPacienteNaLista(paciente)
       })
 
+      // Conditional Color for Status
       var trTags = document.getElementsByTagName('tr')
       for (var i = 0; i < trTags.length; i++) {
         var tdFourthEl = trTags[i].children[1] // starts with 0, so 3 is the 4th element
@@ -93,6 +94,7 @@ window.addEventListener('load', function () {
           tdFourthEl.style.backgroundColor = 'grey'
         }
       }
+      // Conditional Color for Status
     }
   })
   xhr.send(), { once: true }

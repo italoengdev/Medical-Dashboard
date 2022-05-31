@@ -16,5 +16,6 @@ document.getElementById('pickName').textContent = data
 // Store it in localstorage
 
 // Get the value of your saved variable to use it elsewhere
-
 console.log(data)
+
+

@@ -9,3 +9,21 @@
 .calendar{
   min-width: 500px;
 }
+
+.bi.bi-hospital.inline-flex {
+  position: relative;
+  left: -150.484px;
+  top: 8.57837px;
+  background-color: rgb(33, 37, 41);
+  background-blend-mode: normal;
+  opacity: 0.02;
+  text-align: left;
+  color: rgb(235, 241, 246);
+ }
+ 
+ .bi.bi-arrow-right-circle-fill {
+  left: 22.6564px;
+  position: relative;
+  top: 8.577px;
+  color: #0A58CA
+ }
