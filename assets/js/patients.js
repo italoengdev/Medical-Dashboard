@@ -8,7 +8,7 @@ xhr.open('GET', 'https://cm42-medical-dashboard.herokuapp.com/patients')
 xhr.addEventListener('load', function () {
   if (xhr.status == 200) {
     var response = xhr.responseText
-    var pacients = JSON.parse(response)
+    window.pacients = JSON.parse(response)
     console.log(pacients)
 
     novoArray = Array.from(pacients, ({ name }) => name)

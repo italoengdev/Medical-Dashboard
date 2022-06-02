@@ -3,6 +3,7 @@ function pickName() {
   patientName = event.target.textContent
   console.log(patientName)
   sessionStorage.setItem('chave', patientName)
+  
   let menuAbrir = document.getElementById('pickName')
   if (menuAbrir) {
     menuAbrir.addEventListener('load', function () {
@@ -11,8 +12,12 @@ function pickName() {
   }
 }
 data = sessionStorage.getItem('chave')
+const input = document.getElementById('pickName');
+console.log(input); // 👉️ null
 
-document.getElementById('pickName').textContent = data
+if (input) {
+  input.textContent = data;
+}
 // Store it in localstorage
 
 // Get the value of your saved variable to use it elsewhere
