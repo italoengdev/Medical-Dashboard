@@ -1,7 +1,7 @@
 
 # Medical Dashboard
 
-Projeto desenvolvido para teste de vaga de estágio. Na sua elaboraçaõ foram usadas tecnologias de HTML, CSS, Bootstrap e JavaScript
+Projeto desenvolvido para teste de vaga de estágio. Na sua elaboração foram usadas tecnologias de HTML, CSS, Bootstrap e JavaScript
 
 
 ## Deploy
