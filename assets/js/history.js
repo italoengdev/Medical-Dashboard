@@ -23,7 +23,6 @@ window.addEventListener('load', function () {
       sortBy(appoSort, { prop: 'startTime' })
       JSON.stringify(appoSort)
       console.log(appoSort)
-      console.log(appoSortId)
       // Sorting the Data by the startTime
       //taking the names by the other Json-Server and replacing them with your id
       arrayNameId = []
